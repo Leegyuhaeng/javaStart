@@ -11,20 +11,24 @@ public class Code13 {
         }
         kb.close();
 
-        int max = 0;
-        for (int i=0; i<n; i++) {
-        int num = 0;
-            for (int j=i; j<i; j++) {
-                num = num * 10 + data[j];
-                boolean isPrime = true;
-                for (int p=2; p < num/2 && isPrime; p++) {
-                    if(num % p == 0) isPrime = false;
+        int maxPrime = 0;
+        for(int i=0; i<n; i++) {
+            for(int j=i;j<n;j++) {
+                int val  = 0;
+                for(int k=i; k<=j; k++) {
+                    val = val * 10 + data[k];
                 }
-                if(isPrime && num > 1 && num > max ) max = num;
+                boolean isPrime = true;
+                for(int p=2; p < val/2 && isPrime; p++) {
+                    if(val % p==0) isPrime = false;
+                }
+                if (isPrime && val > 1 && val > maxPrime) {
+                    maxPrime = val;
+                }
             }
         }
-        if(max > 0) {
-            System.out.println("The max prime number is" + max);
+        if(maxPrime > 0) {
+            System.out.println("The max prime number is" + maxPrime);
         } else {
             System.out.println("No Prime number exists");
         }
