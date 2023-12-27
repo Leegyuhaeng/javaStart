@@ -13,11 +13,12 @@ public class Code13 {
 
         int maxPrime = 0;
         for(int i=0; i<n; i++) {
+            int val  = 0;
             for(int j=i;j<n;j++) {
-                int val  = 0;
-                for(int k=i; k<=j; k++) {
-                    val = val * 10 + data[k];
-                }
+//                for(int k=i; k<=j; k++) {
+//                    val = val * 10 + data[k];
+//                }
+                val = val * 10 + data[j];
                 boolean isPrime = true;
                 for(int p=2; p < val/2 && isPrime; p++) {
                     if(val % p==0) isPrime = false;
